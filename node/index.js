@@ -1,13 +1,12 @@
-import axios from 'axios';
-import uuid from 'uuid/v4';
+const axios = require('axios');
+const uuid = require('uuid').v4;
 
 const DEFAULT_NODE = 'https://mainnet.incognito.org/fullnode';
-const PROXY = 'https://cors-proxy-mesquka.herokuapp.com/';
 
 function call(method, params, node) {
   return new Promise((resolve, reject) => {
     const endpoint = node || DEFAULT_NODE;
-    axios.post(`${PROXY}${endpoint}`, {
+    axios.post(`${endpoint}`, {
       jsonrpc: '2.0',
       method,
       params,
@@ -18,7 +17,7 @@ function call(method, params, node) {
       } else {
         reject(new Error(result.data.Error));
       }
-    }).catch(err => reject(new Error(err)));
+    }).catch((err) => reject(new Error(err)));
   });
 }
 
@@ -183,9 +182,8 @@ methodNames.forEach((methodName) => {
   methods[methodName] = (params, node) => call(methodName.toLowerCase(), params, node);
 });
 
-export default {
+module.exports = {
   DEFAULT_NODE,
-  PROXY,
   call,
   methods,
 };

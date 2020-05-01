@@ -4,7 +4,7 @@
   "description": "Wrapper for various APIs for the Incognito Network",
   "main": "index.js",
   "scripts": {
-    "test": "node test/index.js"
+    "test": "node ./test/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "uuid": "^7.0.3"
   }
 }

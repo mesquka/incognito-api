@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 
 const ENDPOINT = 'https://api.incognito.org';
 
@@ -14,7 +14,9 @@ function tokens() {
   });
 }
 
-export default {
+module.exports = {
   ENDPOINT,
-  tokens,
+  methods: {
+    tokens,
+  },
 };

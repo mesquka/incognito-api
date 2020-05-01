@@ -1,8 +1,8 @@
-import analytic from './analytic';
-import api from './api';
-import node from './node';
+const analytic = require('./analytic');
+const api = require('./api');
+const node = require('./node');
 
-export default {
+module.exports = {
   analytic,
   api,
   node,
